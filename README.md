@@ -69,7 +69,7 @@ python3 create_visualizations.py
 streamlit run streamlit_app.py
 ```
 
-The application will be available at `http://localhost:8501`
+The application is available at streamlit `https://ogayotk1-frameworks-assignment-srcstreamlit-app-d2whhz.streamlit.app/`
 
 ## Dataset Information
 
