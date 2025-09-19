@@ -201,4 +201,4 @@ with tab4:
 st.markdown("---")
 st.markdown("Data source: [CORD-19 Dataset](https://www.semanticscholar.org/cord19)")
 st.markdown("Developed by Ogayo Andrew | [https://github.com/OgayoTK1](https://github.com/OgayoTK1)")
--    st.download_button("Download full dataset as CSV", csv, "cord19_metadata.csv", "text/csv")
+# st.download_button("Download full dataset as CSV", csv, "cord19_metadata.csv", "text/csv")
