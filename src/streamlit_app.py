@@ -27,13 +27,24 @@ The dataset contains metadata about COVID-19 and coronavirus-related research pa
 # -----------------------------
 @st.cache_data
 def load_data():
-    file_path = os.path.join("data", "metadata_cleaned.csv")
+    # Robust path relative to this script
+    file_path = os.path.join(os.path.dirname(__file__), "data", "metadata_cleaned.csv")
     if os.path.exists(file_path):
         df = pd.read_csv(file_path)
-        df.columns = df.columns.str.strip()  # remove accidental spaces
-        # Rename 'year' to 'publish_year' if still present
+        df.columns = df.columns.str.strip()  # Remove accidental spaces
+
+        # Ensure 'publish_year' exists
         if 'year' in df.columns:
             df.rename(columns={'year': 'publish_year'}, inplace=True)
+        elif 'publish_year' not in df.columns:
+            # Extract from publish_time if missing
+            df['publish_time'] = pd.to_datetime(df['publish_time'], errors='coerce')
+            df.dropna(subset=['publish_time'], inplace=True)
+            df['publish_year'] = df['publish_time'].dt.year
+
+        # Fill missing values to avoid errors
+        df['journal'] = df['journal'].fillna("Unknown")
+        df['authors'] = df['authors'].fillna("Unknown")
         return df
     else:
         return None
@@ -43,10 +54,6 @@ df = load_data()
 if df is None:
     st.error("❌ Dataset not found! Please place `metadata_cleaned.csv` inside the `data/` folder.")
     st.stop()
-
-# Fill missing values to avoid errors
-df['journal'] = df['journal'].fillna("Unknown")
-df['authors'] = df['authors'].fillna("Unknown")
 
 # -----------------------------
 # Sidebar
@@ -97,7 +104,7 @@ with tab2:
 
     def load_image(filename):
         """Helper function to load images from the images/ folder"""
-        path = os.path.join("images", filename)
+        path = os.path.join(os.path.dirname(__file__), "images", filename)
         if os.path.exists(path):
             return Image.open(path)
         return None
@@ -187,5 +194,3 @@ with tab4:
 st.markdown("---")
 st.markdown("Data source: [CORD-19 Dataset](https://www.semanticscholar.org/cord19)")
 st.markdown("Developed by Ogayo Andrew | [https://github.com/OgayoTK1](https://github.com/OgayoTK1)")
-df['authors'] = df['authors'].str.split(',', expand=True)[0]  # Get first author
-top_authors = df['authors'].value_counts().head(10)
