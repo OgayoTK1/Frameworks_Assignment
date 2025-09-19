@@ -1,12 +1,12 @@
-CORD-19 Dataset Analysis
+**CORD-19 Dataset Analysis**
 
 This project provides a comprehensive analysis of the COVID-19 Open Research Dataset (CORD-19) using Python and Streamlit. The project demonstrates data cleaning, exploration, visualization, and building an interactive dashboard for COVID-19 research papers.
 
-Overview
+**Overview**
 
 The CORD-19 dataset is a collection of scholarly articles about COVID-19 and related coronavirus research. This project explores the dataset to understand publication trends, leading journals, and authors, while ensuring clean and accurate data for analysis.
 
-Features
+**Features**
 
 Data Exploration: Load and explore the CORD-19 metadata.
 
@@ -38,20 +38,20 @@ metadata_cleaned.csv – Cleaned dataset
 
 images/*.png – Generated visualization images
 
-Installation
+**Installation**
 
 Clone the repository:
 
 git clone https://github.com/OgayoTK1/Frameworks_Assignment.git
 cd Frameworks_Assignment
 
-
-Install required packages:
+**
+Install required packages:**
 
 pip install pandas matplotlib seaborn streamlit pillow
 
 
-Download the CORD-19 metadata:
+**Download the CORD-19 metadata:**
 
 wget https://ai2-semanticscholar-cord-19.s3-us-west-2.amazonaws.com/2020-05-01/metadata.csv
 
@@ -75,7 +75,7 @@ python3 visualizations.py
 Run Streamlit Application
 streamlit run streamlit_app.py
 
-Dataset Information
+**Dataset Information**
 
 Source: CORD-19 Dataset by Allen Institute for AI
 
@@ -105,7 +105,7 @@ Filled missing values in authors and journal with "Unknown"
 
 Derived publish_year from publish_time
 
-Key Findings
+**Key Findings**
 
 Significant surge in COVID-19 publications in 2020, peaking in 2021, stabilizing in 2022
 
@@ -141,7 +141,7 @@ Build and deploy an interactive dashboard with Streamlit
 
 Communicate analytical findings effectively to stakeholders
 
-Deployment
+**Deployment**
 
 Streamlit Cloud deployment: Live App Link
 
@@ -158,11 +158,11 @@ Allen Institute for AI for providing the CORD-19 dataset
 Streamlit for enabling fast, interactive web application development
 
 All contributors to open-source Python libraries utilized in this project
-Summary Insights
+**Summary Insights**
 
 This section highlights the most critical insights from the CORD-19 dataset, providing actionable and high-level information for researchers, analysts, and decision-makers.
 
-Publication Trends
+**Publication Trends**
 
 COVID-19 research exploded in 2020, peaked in 2021, and stabilized in 2022.
 
@@ -180,19 +180,19 @@ First-author analysis identifies consistent contributors and leading researchers
 
 Patterns of prolific authors indicate research hubs and collaborative networks.
 
-Data Quality & Completeness
+**Data Quality & Completeness**
 
 Minimal missing values for critical fields (authors, journal, publish_year).
 
 Cleaned data ensures reliable analysis and reproducibility.
 
-Dataset Coverage
+**Dataset Coverage**
 
 Papers from 2019–2022 are included, covering the initial outbreak and subsequent global research surge.
 
 Abstract word counts and publication dates are accurately processed for trend analysis.
 
-Visualization Insights
+**Visualization Insights**
 
 Publications per Year: Clear spike in publications during 2020–2021.
 
@@ -208,4 +208,4 @@ Interactive charts allow quick exploration of trends and insights.
 
 Downloadable dataset and images support further offline analysis.
 
-Visual Summary: All charts and figures are stored in the images/ folder and displayed dynamically in the Streamlit app. Users can access visualizations for quick reference, comparison, and reporting purposes.
+**Visual Summary**: All charts and figures are stored in the images/ folder and displayed dynamically in the Streamlit app. Users can access visualizations for quick reference, comparison, and reporting purposes.
